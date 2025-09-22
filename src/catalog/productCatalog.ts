@@ -11,11 +11,7 @@ export const productCatalog: Record<Item, Product> = {
   Lime: { name: 'Lime', price: 1500, strategy: new ThreeForTwo() }
 };
 
-export function resolveItem(input: string): Item | null {
-  const normalized = input.trim().toLowerCase();
-  if (normalized === 'apple') return 'Apple';
-  if (normalized === 'banana') return 'Banana';
-  if (normalized === 'melon') return 'Melon';
-  if (normalized === 'lime') return 'Lime';
-  return null;
-}
+
+export function resolveItem(name: string): Product | undefined {
+    return productCatalog[name as Item];
+  }
